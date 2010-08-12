@@ -1,0 +1,9 @@
+Description:
+    add Jquery files into a existing rails application
+
+Example:
+    rails generate jquery_install 
+
+    This will create:
+        public/javascripts/jquery-X.X.X.js
+        public/javascripts/rails.js

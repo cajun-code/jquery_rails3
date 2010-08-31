@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>change this</title>
+  <%%= stylesheet_link_tag :all %>
+  <% @javascripts.each do |script| %>
+  <%%= javascript_include_tag "<%= script  %>" %>
+  <% end %>
+  <%%= csrf_meta_tag %>
+</head>
+<body>
+
+<%%= yield %>
+
+</body>
+</html>

@@ -9,9 +9,7 @@ module Jquery
     
     JS_DEST = "public/javascripts"
     CSS_DEST = "public/stylesheets"
-    EFFECTS =%w(blind bounce clip core drop explode fold highlight pulsate scale shake slide transfer)
-    COMPONENTS=%w(core widget accordion autocomplete button datepicker dialog draggable droppable mouse position progressbar resizable selectable slider sortable tabs)
-  
+    
     def remove_prototype
       old_scritps = %w(controls dragdrop effects prototype)
       old_scripts.each do |script|

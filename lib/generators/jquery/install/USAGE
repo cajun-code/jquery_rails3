@@ -5,5 +5,6 @@ Example:
     rails generate jquery:install 
 
     This will create:
-        public/javascripts/jquery-X.X.X.js
+        public/javascripts/jquery.js
         public/javascripts/rails.js
+        public/javascripts/jquery-ui.js (optional)

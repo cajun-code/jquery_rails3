@@ -5,13 +5,13 @@ module Jquery
     class_option :ui, :type => :boolean, :defalut => false, :desc => "Add jquery-ui components to application."
     class_option :ui_version, :type => :string, :defalut => "1.8.5", :desc => "Version of jquery-ui components to application."
     class_option :version, :type => :string, :defalut => "1.4.3", :desc => "Version of jquery used in application."
-  
+    
     
     JS_DEST = "public/javascripts"
     CSS_DEST = "public/stylesheets"
     
     def remove_prototype
-      old_scritps = %w(controls dragdrop effects prototype)
+      old_scripts = %w(controls dragdrop effects prototype)
       old_scripts.each do |script|
         path = "#{JS_DEST}/#{script}.js"
         remove_file path if File.exist? path 
@@ -19,25 +19,19 @@ module Jquery
     end
   
     def install_jquery
-      @javascripts = []
-      @stylesheets = []
-  
-      get "http://ajax.googleapis.com/ajax/libs/jquery/#{options.version}/jquery.min.js", "#{JS_DEST}/jquery.js"
-      @javascripts <<  "jquery"
+      version = (options[:version].nil?)? "1.4.3" :  options[:version]
+      ui_version = (options[:ui_version].nil?)? "1.8.5" :  options[:ui_version]
+      url = "http://ajax.googleapis.com/ajax/libs/jquery/#{version}/jquery.min.js"
+      #puts url
+      get url, "#{JS_DEST}/jquery.js"
+      
       get "http://github.com/rails/jquery-ujs/raw/master/src/rails.js", "#{JS_DEST}/rails.js"
-      @javascripts <<  "rails"
+      url = "http://ajax.googleapis.com/ajax/libs/jqueryui/#{ui_version}/jquery-ui.min.js"
+      #puts url
       if options.ui?      
-        get "http://ajax.googleapis.com/ajax/libs/jqueryui/#{options.ui_version}/jquery-ui.min.js", "#{JS_DEST}/jquery-ui.js"  
+        get url, "#{JS_DEST}/jquery-ui.js"  
       end
       
-    end
-  
-    private
-  
-    def jquery_version
-      version = JQUERY_VERSION
-      version = version + ".min" if options.min?
-      return version
     end
   
     

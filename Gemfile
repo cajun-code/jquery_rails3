@@ -2,4 +2,4 @@
 source :gemcutter
 #
 # gem "rails"
-gem "rails", "3.0.0.rc"
+gem "rails", "3.0.1"

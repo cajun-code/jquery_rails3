@@ -12,7 +12,7 @@ require 'rake/testtask'
 
 spec = Gem::Specification.new do |s|
   s.name = 'jquery_rails3'
-  s.version = '1.4.2.b3'
+  s.version = '1.4.3'
   s.has_rdoc = true
   s.extra_rdoc_files = ['README', 'LICENSE']
   s.summary = 'Jquery generator for rails 3'

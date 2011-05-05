@@ -3,8 +3,8 @@ module Jquery
     PATH = source_root File.expand_path('../templates', __FILE__)
     # Options
     class_option :ui, :type => :boolean, :defalut => false, :desc => "Add jquery-ui components to application."
-    class_option :ui_version, :type => :string, :defalut => "1.8.5", :desc => "Version of jquery-ui components to application."
-    class_option :version, :type => :string, :defalut => "1.4.3", :desc => "Version of jquery used in application."
+    class_option :ui_version, :type => :string, :defalut => "1", :desc => "Version of jquery-ui components to application."
+    class_option :version, :type => :string, :defalut => "1", :desc => "Version of jquery used in application."
     
     
     JS_DEST = "public/javascripts"
@@ -19,8 +19,8 @@ module Jquery
     end
   
     def install_jquery
-      version = (options[:version].nil?)? "1.4.3" :  options[:version]
-      ui_version = (options[:ui_version].nil?)? "1.8.5" :  options[:ui_version]
+      version = (options[:version].nil?)? "1" :  options[:version]
+      ui_version = (options[:ui_version].nil?)? "1" :  options[:ui_version]
       url = "http://ajax.googleapis.com/ajax/libs/jquery/#{version}/jquery.min.js"
       #puts url
       get url, "#{JS_DEST}/jquery.js"
